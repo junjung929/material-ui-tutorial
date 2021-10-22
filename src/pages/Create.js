@@ -5,7 +5,7 @@ import {
   FormControl, FormLabel
 } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   field: {
