@@ -1,4 +1,4 @@
-import { AppBar, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Avatar, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => {
     toolbar: theme.mixins.toolbar,
     date: {
       flexGrow: 1
+    },
+    avatar: {
+      marginLeft: theme.spacing(2)
     }
   };
 });
@@ -52,7 +55,7 @@ export default function Layout({ children }) {
     {
       text: 'Create Note',
       icon: <AddCircleOutlineOutlined color='secondary' />,
-      path: '/'
+      path: '/create'
     },
   ];
 
@@ -70,6 +73,9 @@ export default function Layout({ children }) {
           <Typography>
             Guest
           </Typography>
+          <Avatar
+            className={classes.avatar}
+          >G</Avatar>
         </Toolbar>
       </AppBar>
 
@@ -85,17 +91,6 @@ export default function Layout({ children }) {
             Jun's Notes
           </Typography>
         </div>
-
-        <List>
-          <ListItem>
-            <ListItemText primary='hello' />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary='hello' />
-          </ListItem><ListItem>
-            <ListItemText primary='hello' />
-          </ListItem>
-        </List>
 
         {/* list /links */}
         <List>
