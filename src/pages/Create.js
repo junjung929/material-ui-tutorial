@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { Typography, Button, Container, makeStyles, TextField } from '@material-ui/core';
+import {
+  Typography, Button, Container, makeStyles,
+  TextField, Radio, RadioGroup, FormControlLabel,
+  FormControl, FormLabel
+} from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
 
 const useStyles = makeStyles({
@@ -16,6 +20,7 @@ export default function Create() {
   const [details, setDetails] = useState('');
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+  const [category, setCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +36,7 @@ export default function Create() {
     }
 
     if (title && details) {
-      console.log(title, details);
+      console.log(title, details, category);
     }
   };
 
@@ -73,6 +78,16 @@ export default function Create() {
           value={details}
           error={detailsError}
         />
+
+        <FormControl className={classes.field}>
+          <FormLabel>Note Category</FormLabel>
+          <RadioGroup value={category} onChange={e => setCategory(e.target.value)}>
+            <FormControlLabel control={<Radio />} label='Money' value='money' />
+            <FormControlLabel control={<Radio />} label='Todos' value='todos' />
+            <FormControlLabel control={<Radio />} label='Reminders' value='reminders' />
+            <FormControlLabel control={<Radio />} label='Work' value='work' />
+          </RadioGroup>
+        </FormControl>
 
         <Button
           className={classes.btn}
