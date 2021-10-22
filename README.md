@@ -5,7 +5,7 @@
 ### Clone the Repository and Install Packages
 
 ```bash
-git clone git@github.com:junjung929/material-ui-tutorial.git mui-tutorial
+git clone https://github.com/junjung929/material-ui-tutorial.git mui-tutorial
 cd mui-tutorial
 
 npm install
